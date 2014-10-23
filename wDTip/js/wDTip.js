@@ -85,7 +85,7 @@ function _hideTip(){
 
 })(jQuery);
 $(function(){
-	$('.dWtip').each(function() {
+	$('.wDTip').each(function() {
 		var each = $(this);
 		var content = each.data('content'),
 		trigger = each.data('trigger'),
