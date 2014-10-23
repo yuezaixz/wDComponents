@@ -35,29 +35,32 @@
             cursor: help;
         }
 
+        button{
+            background: #d84a38;
+            display: inline-block;
+            font-size: 12px;
+            height: 23px;
+            line-height: 240x;
+            padding: 0px 10px;
+            cursor: pointer;
+            color: #fff;
+            overflow: visible;
+            vertical-align: middle;
+            zoom:1;
+        }
+
     </style>
 </head>
 <body>
 	<div id="demo">
-	    <p><a class="tooltip" id="tooltip1">慕课网</a>的使命是传播互联网最前沿技术，帮助更多的人实现梦想！在慕课网前端开发、
-	        <a class="tooltip" id="tooltip2">Android</a>开发、<a class="tooltip" id="tooltip3">iOS</a>开发等课程统统有，你还在等什么，赶紧来学习吧。
+	    <p><a class="dWtip tooltip" data-trigger='mouseover' data-content="作者：<b>大胃吴</b><br>时间：2014/10/23" >dWtip</a>是一个基于jQuery的JavaScript组件，他的作用在于弹出
+	        <a class="dWtip tooltip" data-content="<img src='images/bg.jpg'/>">气泡层</a>，气泡层的样式、内容的配置方式是采用bootstrap的data-api的设计方式，引入插件后设置相应的class为
+            <a class="dWtip tooltip" data-content="<iframe style='width:600px;height:300px;overflow: scroll;' src='http://www.baidu.com'></iframe>" data-showtime="100"  >dWtip</a>后并设置相应的data属性，即可弹出气泡层。
 	    </p>
+        <button class="dWtip" data-autohide="true" data-content="这是按钮弹出气泡层,设置了10秒后自动消失" data-trigger='click' data-hidetime="5000">点击弹出气泡</button>
 	</div>
 <script src="../commonJS/jquery.min.js"></script>
 <script src="../commonJS/wDUtil.js"></script>
 <script src="js/wDTip.js"></script>
-<script type="text/javascript">
-	$('.tooltip').each(function(index, val) {
-		var each = $(this);
-		each.hover(
-			function () {
-				each.showTip({content:'哈哈哈哈',autoHide:false});;
-			},
-			function () {
-				each.hideTip();
-			}
-		);
-	});
-</script>
 </body>
 </html> 
