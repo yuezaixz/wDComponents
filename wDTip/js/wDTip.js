@@ -1,7 +1,7 @@
 //倒数隐藏标志位，无改变该状态为false，指定延迟后即将隐藏
 var willHide = false;
 //气泡框单例，基于dWUtil.js的单例方法
-var createWDTip = singleton( function(){
+var createWDTip = dWUtil.singleton( function(){
 	var tip = $(['<div id="tipDiv" class="tip-yellowsimple"  style="display:none;visibility: inherit; opacity: 1;">',
 					'<div id="tipTitle" class="tip-inner tip-bg-image"></div>',
 					'<div class="tip-arrow"  style="visibility: inherit;"></div>',
