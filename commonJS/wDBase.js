@@ -56,3 +56,21 @@ Function.prototype.createDelegate = function(obj, args, appendArgs){
 		return method.apply(obj || window, callArgs);
 	};
 };
+
+var createMask = wDUtil.singleton( function(){
+	var $mask = $("<div id='mask'></div>").addClass("mask");
+	$mask.css({
+		'color': '#E8E8E8',
+		'background-color': '#E8E8E8',
+		'position':'absolute',
+		'top':'0px',
+		'left':'0px',
+		'z-index': '1000',
+		'filter': 'progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75',
+		'opacity':'0.6',
+		'width': document.body.clientWidth + document.body.scrollWidth+'px',
+		'height': document.body.clientHeight + document.body.scrollHeight+'px',
+		})
+		.appendTo("body");
+	return $mask;
+});
