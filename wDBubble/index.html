@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>wDBubble</title>
+  <style>
+    .wd_bubble {
+      display: none;   
+      overflow: hidden;
+      width: 142px; 
+      position: absolute; 
+      font-family: "Lucida Grande", Lucida Sans Unicode, Tahoma, Arial;
+      font-size: 8pt;
+    }
+
+    .wd_bubble .bubble_top,
+    .wd_bubble .bubble_bottom,
+    .wd_bubble .bubble_mid {
+      background: url(./images/bubble.png) repeat-y;
+      overflow: hidden;
+    }
+
+    .bubbleIE6 {
+      background-image: url(./images/bubble.gif) !important;
+    }
+
+    .wd_bubble .bubble_top{
+      height: 10px;
+      background-position: -142px 0px;
+    }
+
+    .wd_bubble .bubble_bottom{
+      height: 10px;
+      background-position: -142px -38px;
+    }
+
+    .wd_bubble .bubble_mid {
+      background-position: -284px -1px;
+      overflow: hidden;
+    }
+
+    .wd_bubble .event_title{
+      cursor: pointer;
+      color: #FFF;
+      padding: 3px 0px 3px 0px;
+      margin: 0px 5px 0px 5px;
+      border-bottom: 1px solid #999;
+      font-weight: bold;
+    }
+
+    .wd_bubble .event_title:hover{
+      color: #C1E20D;
+    }
+
+    .wd_bubble .event_title:hover + next{
+      display: block;
+    }
+
+    .wd_bubble .event_data {
+      overflow: hidden;
+      display: none;
+      color: #fff;
+      font-weight: normal;
+      margin: 3px 0px 0px 0px;
+    }
+  </style> 
+</head>
+<body>
+  <div id="target" style="position: absolute;left:500px;" class="wDBubble">
+    <p>
+      待处理工作
+    </p>
+  </div>
+  <div id="target" style="position: absolute;left:700px;" class="wDBubble2">
+    <p>
+      待验证工作
+    </p>
+  </div>
+
+
+  <script src="../thirdJS/jquery.min.js"></script>
+  <script src="../commonJS/wDUtil.js"></script>
+  <script src="../commonJS/wDBase.js"></script>
+  <script src="./lib/wDBubble.js"></script>
+  <script>
+    $(function(){
+      var $modals = $(".wDBubble");
+      var $modals2 = $(".wDBubble2");
+      var bubble = new wDBubble($modals);
+      var data = [{name:'服务器磁盘空间不足',content:'请运维人员及时对0.248服务器的磁盘扩展!'},{name:'门户系统内存溢出',content:'陕西重点人门户运行约两天后会发生宕机，分析日志异常为内存溢出，请运维人员配合研发处理改问题！'}]
+      $modals.mouseover(function(event) {
+        var left = $(this).offset().left 
+        var top = $(this).offset().top + $(this).outerHeight()
+
+        bubble.setContent(data);
+        bubble.show(left,top);
+      });
+      $modals.mouseleave(function(event) {
+        bubble.hide();
+      });
+      var data2 = [{name:'服务器磁盘损坏',content:'0.39服务器已更换新磁盘，请确认！'},{name:'账号权限问题',content:'研判系统数据源对应用户ZDR_YP权限不足，已赋予DBA权限，请确认！'}]
+      $modals2.mouseover(function(event) {
+        var left = $(this).offset().left 
+        var top = $(this).offset().top + $(this).outerHeight()
+
+        bubble.setContent(data2);
+        bubble.show(left,top);
+      });
+      $modals2.mouseleave(function(event) {
+        bubble.hide();
+      });
+
+    });
+  </script>
+</body>
+</html>
