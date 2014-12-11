@@ -61,7 +61,8 @@ wDBubble = function (target) {
       opacity: 'show'
     }, 250);
     this.container.animate({
-      left: atL||0 - (this.container.outerWidth() / 2),
+      //注意刮号
+      left: ((atL||0) - (this.container.outerWidth() / 2)),
       top: atR||0
     }, 300);
   };

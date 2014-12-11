@@ -90,7 +90,7 @@
       var bubble = new wDBubble($modals);
       var data = [{name:'服务器磁盘空间不足',content:'请运维人员及时对0.248服务器的磁盘扩展!'},{name:'门户系统内存溢出',content:'陕西重点人门户运行约两天后会发生宕机，分析日志异常为内存溢出，请运维人员配合研发处理改问题！'}]
       $modals.mouseover(function(event) {
-        var left = $(this).offset().left 
+        var left = $(this).offset().left + ($(this).outerWidth() / 2)
         var top = $(this).offset().top + $(this).outerHeight()
 
         bubble.setContent(data);
@@ -101,7 +101,7 @@
       });
       var data2 = [{name:'服务器磁盘损坏',content:'0.39服务器已更换新磁盘，请确认！'},{name:'账号权限问题',content:'研判系统数据源对应用户ZDR_YP权限不足，已赋予DBA权限，请确认！'}]
       $modals2.mouseover(function(event) {
-        var left = $(this).offset().left 
+        var left = $(this).offset().left + ($(this).outerWidth() / 2)
         var top = $(this).offset().top + $(this).outerHeight()
 
         bubble.setContent(data2);

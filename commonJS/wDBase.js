@@ -17,13 +17,13 @@
 	//-----------------------------
 	//2、跨域的问题domain设置
 	//-----------------------------
-	if($(document).find("script").attr("src").indexOf("WdatePicker.js") < 0){
+	/*if($(document).find("script").attr("src").indexOf("WdatePicker.js") < 0){
 		if(window.location.href && window.location.href.indexOf("davidApp.com") > 0) {
 			document.domain = "davidApp.com";
 		}else{
 			document.domain = "david.com";
 		}
-	}
+	}*/
 	
 	//-----------------------------
 	//3、修复ie6图片载入bug
